@@ -1,0 +1,19 @@
+<i><%= flash[:notice] %> </i></br>
+
+<font face="verdana" color="black">UPLOAD 7 SEGMENTED INVOICES FILE</h3>
+
+<div align="center" style="border:2px solid blue; width:50% ">
+	<%= form_tag({action: 'uploadFile'}, multipart: true) do %>
+
+	<p><label for="upload_file">Select File</label> : 
+
+	<%= file_field_tag 'upload' %></p>
+
+	<%= submit_tag "Upload" %>
+
+	<% end %>
+
+	<% if File.file?(Rails.root.join('tmp/processed.txt')) %>
+	<%= link_to 'Download processed file', download_file_path %>
+	<% end %>
+</div>
