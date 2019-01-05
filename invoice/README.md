@@ -28,7 +28,7 @@ upload file
 -
 
     click on browse button
-    select file (both valid and invalif file present in the folder shared)
+    select file
     click on upload button
     click on link to download processed output text file as an attachment
 

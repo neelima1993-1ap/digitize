@@ -12,8 +12,12 @@
 	<%= submit_tag "Upload" %>
 
 	<% end %>
+    </br>
+   
+    <% processed_files = "#{Rails.root}/tmp/processed_*.txt" %>
+    <% Dir[processed_files].each do |f| %>
+        <% file =  File.basename(f) %>
+    	<%= link_to "Download #{file}", download_file_path(file: file) %></br>
+    <% end %>
 
-	<% if File.file?(Rails.root.join('tmp/processed.txt')) %>
-	<%= link_to 'Download processed file', download_file_path %>
-	<% end %>
 </div>
