@@ -25,14 +25,15 @@ class Parser
             end  
           end 
     end #loop end   
-    @str_count = @str_count + 3 
+    puts "#{str_count.inspect}==========================>"
+    self.str_count = str_count + 3 
     if DIGITS[str] 
         invoice_num << DIGITS[str].to_s
     else
       invoice_num << "?" 
     end
   
-    if @str_count < 27 #27 characters in one line 
+    if str_count < 27 #27 characters in one line 
       @str = ""   #empty string for next digit of invoice
       dig(x+3,3)  
     end 
@@ -50,6 +51,7 @@ class Parser
       	invoice_count.times do   
           lines = 4.times.map { f.gets }
           invoice = new(lines)
+          puts invoice.str_count
           invoice.dig(0,3)
           #write each invoice number in processed file
           File.open(processed_file, 'a') do |f|         

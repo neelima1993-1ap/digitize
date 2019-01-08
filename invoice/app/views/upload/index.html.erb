@@ -3,7 +3,7 @@
 <font face="verdana" color="black">UPLOAD 7 SEGMENTED INVOICES FILE</h3>
 
 <div align="center" style="border:2px solid blue; width:50% ">
-	<%= form_tag({action: 'uploadFile'}, multipart: true) do %>
+	<%= form_tag({action: 'upload_file'}, multipart: true) do %>
 
 	<p><label for="upload_file">Select File</label> : 
 
@@ -17,7 +17,7 @@
     <% processed_files = "#{Rails.root}/tmp/processed_*.txt" %>
     <% Dir[processed_files].each do |f| %>
         <% file =  File.basename(f) %>
-    	<%= link_to "Download #{file}", download_file_path(file: file) %></br>
+    	<%= link_to "Download #{file}", download_file_path(file: file) , method: :post %></br>
     <% end %>
 
 </div>

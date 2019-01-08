@@ -1,10 +1,11 @@
 class UploadController < ApplicationController
 
-	def uploadFile
+	def upload_file
     file_name = DigitalInvoice.save_file(params[:upload])
     Parser.parse(file_name)  #reads digitized file and converts
-    redirect_to action: "index"
     flash[:notice] = "File converted successfully"
+    redirect_to action: "index"
+    
   end
 
   def download_text_file
