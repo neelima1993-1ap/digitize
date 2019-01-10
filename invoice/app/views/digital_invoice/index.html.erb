@@ -1,0 +1,39 @@
+<div class="alert alert-success">
+  <strong><%= flash[:notice] %></strong>
+</div>
+
+<div class="container"  align="center"  >
+    <div class="page-header" ><p class="text-info">UPLOAD 7 SEGMENTED INVOICES FILE</p></div>
+
+    	<%= form_tag({action: 'upload'}, multipart: true) do %>
+
+        	<%= file_field_tag 'upload' , class: 'btn-default' %></p>
+
+        	<%= submit_tag "UPLOAD" , class: 'btn-success'%>
+
+    	<% end %>
+    
+</div>
+</br>
+
+<div class="intpol3">
+    <table class="table table-bordered">
+        <% unless DigitalInvoice.all.count == 0 %> 
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Original File</th>
+            <th>Processed File</th>
+          </tr>
+        </thead>
+        <% end %>
+    <% DigitalInvoice.all.each do |di| %>
+    <tr>
+        <td><%= di.id %></td>
+        <td><%= link_to "Download #{di.raw_identifier}", download_file_path(file: di, type: "raw"), method: :post %></td>
+        <td><%= link_to "Download #{di.processed_identifier}", download_file_path(file: di , type: "processed"), method: :post  %></td>
+    </tr>   
+         
+    <% end %>
+</table>
+</div>

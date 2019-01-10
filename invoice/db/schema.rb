@@ -10,11 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_31_042158) do
+ActiveRecord::Schema.define(version: 2019_01_09_160233) do
 
-  create_table "digital_invoices", force: :cascade do |t|
+  create_table "digital_invoices", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "raw"
+    t.string "processed"
   end
 
 end
