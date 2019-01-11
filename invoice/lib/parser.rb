@@ -49,7 +49,6 @@ class Parser
         invoice_count.times do   
           lines = 4.times.map { f.gets }
           invoice = new(lines)
-          puts invoice.str_count
           invoice.dig(0,3)
      #write each invoice number in processed file
           File.open(processed_file, 'a') do |f|         

@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: 'digital_invoice#index'
+  root 'digital_invoices#index'
   
-  post 'upload', to: "digital_invoice#upload"
-  post '/download/file', to: 'digital_invoice#download', as: 'download_file'
-
+  resources :digital_invoices,  only: [:index] do
+  	post :upload, on: :collection 
+  	post :download, on: :member
+  end
 end
