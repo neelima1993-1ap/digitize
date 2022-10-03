@@ -8,6 +8,7 @@
 # 	else
 # 	  i
 # 	end }.join(',')
+# interesting program
 
 
 (1..100).map do |i| 
