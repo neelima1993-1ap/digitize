@@ -9,6 +9,7 @@
 # 	  i
 # 	end }.join(',')
 # interesting program
+# test rule
 
 
 (1..100).map do |i| 
